@@ -9,14 +9,15 @@ from datetime import datetime
 from module import transaction_
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
-connectionLocalIP = pymongo.MongoClient('210.125.31.245',1000)
+connectionLocalIP = pymongo.MongoClient('127.0.0.1',1000)
 localDB = connectionLocalIP.get_database('Bitcoin')
 block_Collection = localDB.get_collection('Block')
 blockHeight_Collection = localDB.get_collection('BlockHeight')
 tx_Collection = localDB.get_collection('Transaction')
 
 def connect():
-    rpc_connection = AuthServiceProxy("http://daphnea:5287710@127.0.0.1:8332", timeout=240)
+    #When executing the code, the user id and password information of rpc_connection must be modified 
+    rpc_connection =  AuthServiceProxy("http://user_id:user_password@127.0.0.1:8332", timeout=240)
     return rpc_connection
 
 def getblock(blockhash, option):
