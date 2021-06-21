@@ -8,7 +8,7 @@ from datetime import datetime
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
 def connect():
-    rpc_connection = AuthServiceProxy("http://daphnea:5287710@127.0.0.1:8332", timeout=240)
+    rpc_connection =  AuthServiceProxy("http://user_id:user_password@127.0.0.1:8332", timeout=240)
     return rpc_connection
 
 def bitcoin_getBestBlock():
