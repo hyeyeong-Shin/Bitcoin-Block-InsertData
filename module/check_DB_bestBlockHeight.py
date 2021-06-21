@@ -4,14 +4,13 @@ import time
 import pymongo
 sys.path.append(os.path.dirname(__file__))
 
-connectionLocalIP = pymongo.MongoClient('210.125.31.245',1000)
+connectionLocalIP = pymongo.MongoClient('127.0.0.1',1000)
 localDB = connectionLocalIP.get_database('Bitcoin')
 block_Collection = localDB.get_collection('BlockHeight')
 tx_Collection = localDB.get_collection('Transaction')
 
 def database_bestBlockHeight():
     block_count = block_Collection.find({}).sort("_id",-1).count()
-#    return lastBlock[0]['_id']
 
     if block_count !=0 :
         lastBlock = block_Collection.find({}).sort("_id",-1).limit(1)
