@@ -28,7 +28,8 @@ class blockData_Object(object):
         return self.block_basicInfo
 
 def connect():
-    rpc_connection = AuthServiceProxy("http://daphnea:5287710@127.0.0.1:8332", timeout=240)
+    #When executing the code, the user id and password information of rpc_connection must be modified 
+    rpc_connection = AuthServiceProxy("http://user_id:user_password@127.0.0.1:8332", timeout=240)
     return rpc_connection
 
 def transactionData(blockInfo):
